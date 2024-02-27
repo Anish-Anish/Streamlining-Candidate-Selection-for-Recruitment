@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thank you! Form submitted</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    img {
+      width: 250px;
+      height: 250px;
+      cursor: pointer; 
+      display: none; 
+    }
+
+    #response-text {
+      display: none;
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
+
+  <script>
+    function restartGif() {
+      var img = document.getElementById('animated-gif');
+      img.style.display = 'block'; 
+      img.src = '/submit.gif?' + new Date().getTime(); 
+
+      setTimeout(function() {
+        img.style.display = 'none'; 
+        document.getElementById('response-text').style.display = 'block'; 
+      }, 2000); 
+    }
+
+    window.onload = function() {
+      restartGif();
+    };
+  </script>
+</head>
+<body>
+  <img id="animated-gif" src="../views/submit.gif" onclick="restartGif()" />
+ 
+  <div id="response-text">
+    Response has been submitted 
+    <br>
+    We will get back you !🤩  
+    <br> 
+    
+    <button onclick="window.location.href='/'" class="button">Goback</button>
+  </div>
+ 
+</body>
+</html>
